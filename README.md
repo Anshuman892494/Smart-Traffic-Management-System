@@ -131,6 +131,34 @@ frontend/
 │   └── index.js
 ```
 
+### Full Structure
+
+```
+smart-traffic-system/
+├── backend/
+│   ├── src/
+│   │   ├── config/          # Database configuration
+│   │   ├── controllers/     # Route controllers
+│   │   ├── middleware/      # Auth & role middleware
+│   │   ├── models/         # MongoDB schemas
+│   │   ├── routes/         # API routes
+│   │   ├── utils/          # Utility functions
+│   │   └── server.js       # Main server file
+│   ├── package.json
+│   └── .env
+├── frontend/
+│   ├── src/
+│   │   ├── components/     # React components
+│   │   ├── context/       # React context providers
+│   │   ├── pages/         # Page components
+│   │   ├── services/      # API services
+│   │   ├── styles/        # CSS styles
+│   │   ├── App.js         # Main App component
+│   │   └── index.js       # Entry point
+│   └── package.json
+└── README.md
+```
+
 ---
 
 ## 🗃 Database Schema
@@ -177,7 +205,6 @@ frontend/
 ### Backend Setup
 
 ```bash
-git clone <repository-url>
 cd backend
 npm install
 npm run dev
