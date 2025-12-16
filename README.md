@@ -7,6 +7,8 @@ The **Smart Traffic Management System for Urban Congestion** is a full-stack web
 The application helps traffic authorities analyze congestion patterns and enables users to stay informed about traffic conditions while securely managing their personal and vehicle information.
 
 ---
+## Screenshot - Admin Dashboard
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/99688b08-7b05-436f-84e3-62f6b57145e5" />
 
 ## 🎯 Objectives
 
