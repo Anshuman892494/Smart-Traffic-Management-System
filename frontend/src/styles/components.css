@@ -1,0 +1,642 @@
+/* Component-specific styles */
+
+/* Traffic Map Customization */
+.leaflet-container {
+    font-family: var(--font-sans);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+}
+
+.leaflet-popup-content {
+    font-size: 0.875rem;
+    color: var(--gray-700);
+}
+
+.leaflet-popup-content h3 {
+    color: var(--gray-900);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.leaflet-control-zoom {
+    border: 1px solid var(--gray-200) !important;
+    border-radius: var(--border-radius) !important;
+    overflow: hidden;
+    box-shadow: var(--shadow) !important;
+}
+
+.leaflet-control-zoom a {
+    background: white !important;
+    color: var(--gray-600) !important;
+    border-bottom: 1px solid var(--gray-200) !important;
+}
+
+.leaflet-control-zoom a:hover {
+    background: var(--gray-50) !important;
+    color: var(--gray-900) !important;
+}
+
+/* Custom Traffic Markers */
+.traffic-marker {
+    position: relative;
+}
+
+.traffic-marker-pulse {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+    0% {
+        width: 16px;
+        height: 16px;
+        opacity: 0.8;
+    }
+
+    100% {
+        width: 40px;
+        height: 40px;
+        opacity: 0;
+    }
+}
+
+.traffic-marker-low .traffic-marker-pulse {
+    background: var(--success-400);
+}
+
+.traffic-marker-medium .traffic-marker-pulse {
+    background: var(--warning-400);
+}
+
+.traffic-marker-high .traffic-marker-pulse {
+    background: var(--danger-400);
+}
+
+/* Traffic Flow Animation */
+.traffic-flow {
+    position: relative;
+    overflow: hidden;
+}
+
+.traffic-flow::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.4),
+            transparent);
+    animation: traffic-flow 2s infinite;
+}
+
+@keyframes traffic-flow {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 200%;
+    }
+}
+
+/* Chart Customization */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+    stroke: var(--gray-200);
+}
+
+.recharts-tooltip-wrapper {
+    background: white !important;
+    border: 1px solid var(--gray-200) !important;
+    border-radius: var(--border-radius) !important;
+    box-shadow: var(--shadow-lg) !important;
+    padding: 0.75rem !important;
+}
+
+.recharts-tooltip-label {
+    color: var(--gray-900) !important;
+    font-weight: 600 !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.recharts-tooltip-item {
+    color: var(--gray-700) !important;
+    font-size: 0.875rem !important;
+}
+
+.recharts-legend-item-text {
+    color: var(--gray-600) !important;
+    font-size: 0.875rem !important;
+}
+
+/* Login/Register Pages */
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--primary-900) 0%, var(--gray-900) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+}
+
+.auth-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius-xl);
+    padding: 3rem;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: var(--shadow-xl);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    z-index: 1;
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.auth-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.auth-logo-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--border-radius);
+    background: linear-gradient(135deg, var(--primary-600), var(--primary-400));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.auth-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--primary-600), var(--primary-400));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.auth-subtitle {
+    color: var(--gray-600);
+    font-size: 0.875rem;
+}
+
+.auth-divider {
+    display: flex;
+    align-items: center;
+    margin: 1.5rem 0;
+    color: var(--gray-400);
+    font-size: 0.875rem;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--gray-300);
+}
+
+.auth-divider span {
+    padding: 0 1rem;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--gray-200);
+    color: var(--gray-600);
+    font-size: 0.875rem;
+}
+
+.auth-link {
+    color: var(--primary-600);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition-fast);
+}
+
+.auth-link:hover {
+    color: var(--primary-700);
+    text-decoration: underline;
+}
+
+/* Dashboard Widgets */
+.dashboard-widget {
+    background: white;
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--gray-200);
+    transition: all var(--transition);
+    height: 100%;
+}
+
+.dashboard-widget:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.widget-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.widget-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gray-900);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.widget-icon {
+    width: 2rem;
+    height: 2rem;
+    border-radius: var(--border-radius);
+    background: linear-gradient(135deg, var(--primary-100), var(--primary-50));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-600);
+}
+
+.widget-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.widget-content {
+    margin-top: 1rem;
+}
+
+/* Traffic Timeline */
+.traffic-timeline {
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.traffic-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--gray-200);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -1.75rem;
+    top: 0;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background: var(--gray-300);
+    border: 2px solid white;
+    box-shadow: var(--shadow-sm);
+}
+
+.timeline-item.low .timeline-marker {
+    background: var(--success-500);
+}
+
+.timeline-item.medium .timeline-marker {
+    background: var(--warning-500);
+}
+
+.timeline-item.high .timeline-marker {
+    background: var(--danger-500);
+}
+
+.timeline-content {
+    background: var(--gray-50);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    border-left: 3px solid var(--gray-300);
+}
+
+.timeline-item.low .timeline-content {
+    border-left-color: var(--success-500);
+    background: var(--success-50);
+}
+
+.timeline-item.medium .timeline-content {
+    border-left-color: var(--warning-500);
+    background: var(--warning-50);
+}
+
+.timeline-item.high .timeline-content {
+    border-left-color: var(--danger-500);
+    background: var(--danger-50);
+}
+
+.timeline-time {
+    font-size: 0.75rem;
+    color: var(--gray-500);
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.timeline-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: 0.25rem;
+}
+
+.timeline-description {
+    font-size: 0.75rem;
+    color: var(--gray-600);
+}
+
+/* Vehicle Cards */
+.vehicle-card {
+    background: white;
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+    border: 1px solid var(--gray-200);
+    transition: all var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.vehicle-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+    border-color: var(--primary-300);
+}
+
+.vehicle-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-500), var(--primary-300));
+}
+
+.vehicle-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.vehicle-number {
+    font-family: var(--font-mono);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--gray-900);
+    letter-spacing: 0.05em;
+}
+
+.vehicle-type {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.vehicle-type.car {
+    background: var(--primary-100);
+    color: var(--primary-700);
+}
+
+.vehicle-type.bike {
+    background: var(--success-100);
+    color: var(--success-700);
+}
+
+.vehicle-type.bus {
+    background: var(--warning-100);
+    color: var(--warning-700);
+}
+
+.vehicle-type.truck {
+    background: var(--danger-100);
+    color: var(--danger-700);
+}
+
+.vehicle-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.vehicle-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.vehicle-info-label {
+    font-size: 0.75rem;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.vehicle-info-value {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--gray-900);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .auth-card {
+        padding: 2rem;
+        margin: 1rem;
+    }
+
+    .vehicle-info {
+        grid-template-columns: 1fr;
+    }
+
+    .traffic-timeline {
+        padding-left: 1rem;
+    }
+
+    .timeline-marker {
+        left: -1.25rem;
+    }
+}
+
+/* Animation Utilities */
+.fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.slide-in-up {
+    animation: slideInUp 0.3s ease-out;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Custom Scrollbar for Components */
+.component-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--gray-300) var(--gray-100);
+}
+
+.component-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.component-scrollbar::-webkit-scrollbar-track {
+    background: var(--gray-100);
+    border-radius: 3px;
+}
+
+.component-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--gray-300);
+    border-radius: 3px;
+}
+
+.component-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--gray-400);
+}
+
+/* Loading Overlay */
+.component-loading {
+    position: relative;
+}
+
+.component-loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: inherit;
+    z-index: 10;
+}
+
+.component-loading::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 2rem;
+    height: 2rem;
+    border: 3px solid var(--gray-200);
+    border-top-color: var(--primary-500);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 11;
+}
